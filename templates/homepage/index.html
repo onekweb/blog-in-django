@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>My blog</title>
+</head>
+<body>
+	<h2>Entries:</h2>
+	{% for e in entries %}
+		<div> {{ e.title }} - {{ e.created }} </div>
+			<div>{{ e.text }}</div>
+	</br>
+	{% endfor %}
+</body>
+
+</html>
