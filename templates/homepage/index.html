@@ -1,14 +1,22 @@
-<html>
-<head>
-	<title>My blog</title>
-</head>
-<body>
+{% extends "base.html"%}
+
+{% block Title%}
+Index Page
+{% endblock%}
+{% block navi%}
+Home - about - archive - contact
+{% endblock %}	
+
+{% block content%}
+
 	<h2>Entries:</h2>
 	{% for e in entries %}
 		<div> {{ e.title }} - {{ e.created }} </div>
 			<div>{{ e.text }}</div>
 	</br>
 	{% endfor %}
-</body>
 
-</html>
+{% endblock %}
+{% block footer%}
+2013 - Myblog
+{% endblock %}	
