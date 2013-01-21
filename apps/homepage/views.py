@@ -5,10 +5,16 @@ from apps.homepage.forms import ContactForm
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail, mail_admins
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 def index(request):
 	entries = Entry.objects.published_entries().order_by('-id')
-	ctx = { 'entries':entries }
+	paginator = Paginator(entries, 2)
+	page_num= request.GET.get('page', 1)
+	page = paginator.page(page_num)
+	ctx = {
+		'page':page
+		}
 	return render_to_response('homepage/index.html', ctx, context_instance=RequestContext(request))
 
 def about(request):
