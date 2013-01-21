@@ -1,0 +1,25 @@
+{% extends "homepage/index.html" %}
+
+{% block title %}
+Contact
+{% endblock %}
+{% block content %}
+    <h2>Contact</h2>
+   
+   {% if success %}
+       <h2>Data posted:</h2>
+       
+       <p>email: {{ email }}</p>
+       <p>title: {{ title }}</p>
+       <p>text: {{ text }}</p>
+    {% else%} 
+   
+    <form action="." method="POST">
+        {{ contact_form.as_p}}
+        
+        <input type="submit" value="send">            
+        <input type="reset" value="reset">
+        
+    </form>
+    {% endif %}
+{% endblock %}

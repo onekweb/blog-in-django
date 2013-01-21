@@ -2,7 +2,7 @@
     <head>
         <title>{% block Title %}{% endblock %}</title>
         {% block js %} {% endblock %}
-        {% block css %}{% endblock %}
+        {% block css %}<link rel="stylesheet" href="{{ MEDIA_URL }}css/main.css">{% endblock %}
     </head>
     <body>
         <div id="top">My blog</div>

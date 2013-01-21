@@ -1,10 +1,11 @@
 {% extends "base.html"%}
 
-{% block Title%}
+{% block Title %}
 Index Page
-{% endblock%}
-{% block navi%}
-Home - about - archive - contact
+{% endblock %}
+{% block navi %}
+<a href="{% url homepage_index %}">Home</a> - <a href="{% url homepage_about %}">About</a> - <a href="{% url homepage_archive %}">Archive</a> - <a href="{% url homepage_contact %}">Contact</a>
+	
 {% endblock %}	
 
 {% block content%}
