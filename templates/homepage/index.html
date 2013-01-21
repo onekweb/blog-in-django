@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block Title %}
+Index Page
+{% endblock %}
+{% block navi %}
+<a href="{% url homepage_index %}">Home</a> - <a href="{% url homepage_about %}">About</a> - <a href="{% url homepage_archive %}">Archive</a> - <a href="{% url homepage_contact %}">Contact</a>
+	
+{% endblock %}	
+
+{% block content%}
+
+	<h2>Entries:</h2>
+	{% for e in entries %}
+		<div> {{ e.title }} - {{ e.created }} </div>
+			<div>{{ e.text }}</div>
+	</br>
+	{% endfor %}
+
+{% endblock %}
+{% block footer%}
+2013 - Myblog
+{% endblock %}	
