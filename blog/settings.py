@@ -165,9 +165,13 @@ LOGGING = {
     }
 }
 
-
 EMAIL_HOST = 'mario.onekanda@gmail.com'
 EMAIL_HOST_USER = 'admin'
 EMAIL_HOST_PASSWORD = 'admin'
 EMAIL_PORT = '25'
 EMAIL_USE_TLS = 'True'
+
+LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_URL = '/login/'
+
+#AUTHENTICATION_BACKENDS = ("apps.accounts.auth.backends.MyModelBackend",)

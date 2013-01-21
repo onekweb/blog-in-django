@@ -4,6 +4,7 @@ from django.template import RequestContext
 from apps.homepage.forms import ContactForm
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail, mail_admins
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 	entries = Entry.objects.published_entries().order_by('-id')
@@ -37,5 +38,8 @@ def contact(request):
 		contact_form = ContactForm()
 	ctx = {'contact_form':contact_form,'email':email, 'title': title, 'text':title, 'success':success}
 	return render_to_response('homepage/contact.html', ctx, context_instance=RequestContext(request))
-	
-			
+
+@login_required	
+def profile(request):
+	ctx = {}
+	return render_to_response('homepage/profile.html', ctx, context_instance=RequestContext(request))
